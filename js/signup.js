@@ -20,9 +20,10 @@ document.getElementById("signup-form").addEventListener("submit", function (even
       credentials = {
           email: email.value,
           password: password.value,
+          username: username.value
       };
-      fetch("http://api-thriller-diary.herokuapp.com/api/v1/auth/signup/", {
-    //   fetch("http://127.0.0.1:5000/api/v1/auth/signup", {
+    //   fetch("http://api-thriller-diary.herokuapp.com/api/v1/auth/signup/", {
+      fetch("http://127.0.0.1:5000/api/v1/auth/signup", {
               method: "POST",
               headers: {
                   "Content-Type": "application/json"
@@ -33,18 +34,19 @@ document.getElementById("signup-form").addEventListener("submit", function (even
           .then(data => {
             console.log(data)
             response_message  = Object.values(data);
+            console.log(response_message[0])
             let received = response_message[1];
             
             if (received == `user exists`){
                 // yell at the user
                 const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
-                let messageBody = document.getElementById("response_message");
+                let messageBody = document.getElementById("return");
                 messageBody.innerHTML = ResponseMessage
             }
             else {
                 const successMessage = response_message[0];
-                const ResponseMessageSuccess = `<h3 class="text-green">Registration ${successMessage}ul!</h3>`;
-                let SuccessmessageBody = document.getElementById("response_message_success");
+                const ResponseMessageSuccess = `<h3 class="text-green">Registration ${successMessage}ful!</h3>`;
+                let SuccessmessageBody = document.getElementById("return");
                 SuccessmessageBody.innerHTML = ResponseMessageSuccess
                 // redirect for login
                 // window.location.href = "/login.html";

@@ -259,7 +259,7 @@ td {
     color: #5CB85C;
 }
 
-.delete a {
+.text-red, .delete a {
     color: #C9302C;
 } 
 
@@ -295,6 +295,10 @@ td {
 
   .home_footer {
       background: #332E35;
+  }
+
+  .text-green{
+      color: #5CB85C;
   }
 /*********
 Typography
