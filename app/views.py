@@ -62,3 +62,10 @@ def view(entryId):
     Preview entry
     """
     return render_template("content.html")
+
+@app.route('/profile')
+def profile():
+    """
+    Preview profile
+    """
+    return render_template("profile.html")

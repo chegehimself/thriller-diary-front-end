@@ -12,10 +12,10 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      
      <!-- icon -->
-     <link rel="shortcut icon" type="image/png" href="imgs/thriller.png">
+     <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='imgs/thriller.png') }}">
  
      <!-- custom css -->
-     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
      <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
      
      <title>Thriller Diary</title>
@@ -54,8 +54,8 @@
          <h1 id="title-header">Thriller Diary</h1>
          <nav>
          <ul>
-             <a href="modify.html"><li><button class="btn-toHome">Add Entries</button></li></a>
-             <a href="dashboard.html"><li><button class="btn-toSign">Go To Dashboard</button></li></a>
+             <a href="/modify"><li><button class="btn-toHome">Add Entries</button></li></a>
+             <a href="/dashboard"><li><button class="btn-toSign">Go To Dashboard</button></li></a>
              <a href=""><li><button class="btn-toSign">Log Out</button></li></a>
          </ul>
          </nav>
@@ -65,9 +65,9 @@
          <section>
              <div>
                  <h2>Profile</h2>
-                 <p>First Name: <span class="name">John</span></p>
-                 <p>Last Name: <span class="name">English</span></p>
-                 <p>Numeber of Entries<a href="dashboard.html"><li><span class="num">8</span></li></a></p>
+                 <p>Email: <span class="name" id="email"></span></p>
+                 <p>Username: <span class="name" id="name"></span></p>
+                 <p>Numeber of Entries<a href="/dashboard"><li><span class="num">Entries</span></li></a></p>
                  <br>
                  <p>Set a reminder here!</p>
 
@@ -109,7 +109,8 @@
      </footer>
     
      <!-- js -->
-     <script src="js/main.js"></script>
+     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
  </body>
  </html>
  

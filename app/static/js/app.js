@@ -269,7 +269,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const user = Object.values(data['Profile'])
             console.log(user[1])
             const userinfo = document.getElementById("name");
+            const usermail = document.getElementById("email");
             userinfo.innerHTML = `${user[1]}!`;
+            usermail.innerHTML = `${user[2]}!`;
 
         })})
             .catch(err => console.log(err));
