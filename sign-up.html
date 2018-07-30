@@ -1,0 +1,68 @@
+<!-- 
+    * sign-up.html
+    * A file that will contain sign-up fields[username, email, etc]
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thriller Diary: sign-up</title>
+
+    <!-- icon -->
+    <link rel="shortcut icon" type="image/png" href="imgs/thriller.png">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="sign">
+
+    <header id="top" class="section_top">
+        <h2 id="title-header">Thriller Diary</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html"><button class="btn-toHome">Home</button></a></li>
+                <li><a href="sign-in.html"><button class="btn-toSign">Sign-In</button></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="sign wrap-content">
+            <form action="sign-in.html">
+                <div class="group-form">
+                    <input type="text" id="fname" class="form-input" placeholder="First name" required>
+                </div>
+                <div class="group-form">
+                    <input type="text" id="lname" class="form-input" placeholder="last name" required>
+                </div>
+                <div class="group-form">
+                    <input type="email" id="email" class="form-input" placeholder="Email" required>
+                </div>
+                <div class="group-form">
+                    <input type="number" id="phone" class="form-input" placeholder="Phone(optional)">
+                </div>
+                <div class="group-form">
+                    <input type="password" id="password" class="form-input" placeholder="Passowrd" required>
+                </div>
+                <div class="group-form">
+                    <input type="password" id="confirm" class="form-input" placeholder="Confirm" required>
+                </div>
+                <div class="group-form">
+                    <button type="submit" class="btn-reg">Register</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- footer -->
+        <footer class="section_footer">
+                <div class="wrap-content">
+                  <p>&copy; 2018 Thriller Diary</p>
+                </div>
+        </footer>
+    </main>
+
+</body>
+</html>
