@@ -3,8 +3,8 @@
 // fetch for landing page
 let message = document.getElementById('welcoming-message');
 
-// const WelcomeUrl = 'http://api-thriller-diary.herokuapp.com/api/v1/auth/';
-const WelcomeUrl = 'http://127.0.0.1:5000/api/v1/auth/';
+const WelcomeUrl = 'http://api-thriller-diary.herokuapp.com/api/v1/auth/';
+// const WelcomeUrl = 'http://127.0.0.1:5000/api/v1/auth/';
 fetch(`${WelcomeUrl}`)
 
     .then((response)=>{

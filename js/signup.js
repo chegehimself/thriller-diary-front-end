@@ -22,8 +22,8 @@ document.getElementById("signup-form").addEventListener("submit", function (even
           password: password.value,
           username: username.value
       };
-    //   fetch("http://api-thriller-diary.herokuapp.com/api/v1/auth/signup/", {
-      fetch("http://127.0.0.1:5000/api/v1/auth/signup", {
+      fetch("http://api-thriller-diary.herokuapp.com/api/v1/auth/signup/", {
+    //   fetch("http://127.0.0.1:5000/api/v1/auth/signup", {
               method: "POST",
               headers: {
                   "Content-Type": "application/json"
