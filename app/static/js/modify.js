@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     title = document.getElementById('title');
     description = document.getElementById('description');
     const token = JSON.parse(localStorage.getItem('access_token'));
-    console.log(window.location.pathname);
     entryId = Number(location.pathname.match(/\d+/)[0]);
-    console.log(entryId)
     const EntriesUrl = `http://127.0.0.1:5000/api/v1/entries/${entryId}`;
     fetch(`${EntriesUrl}`, {
         method: "GET",
@@ -39,7 +37,6 @@ const Modify = () => {
         title: title.value,
         description: description.value
     }
-    console.log(content);
 
     fetch(`${EntriesUrl}`, {
         method: "PUT",
@@ -51,7 +48,6 @@ const Modify = () => {
     })
     .then((response)=>{
         response.json().then((data) => {
-            console.log(data)
         })}).catch(err => console.log(err));
     });
     }
