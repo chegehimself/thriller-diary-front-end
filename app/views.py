@@ -27,3 +27,10 @@ def signin():
     Render the signin page
     """
     return render_template("sign-in.html")
+
+@app.route('/dashboard')
+def dashboard():
+    """
+    Render the dashboard page
+    """
+    return render_template("dashboard.html")

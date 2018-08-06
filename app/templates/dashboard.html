@@ -15,7 +15,7 @@
      <link rel="shortcut icon" type="image/png" href="imgs/thriller.png">
  
      <!-- custom css -->
-     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
      
      <title>Thriller Diary</title>
  </head>
@@ -125,8 +125,8 @@
      </footer>
     
      <!-- js -->
-     <script src="js/main.js"></script>
-     <script src="jquery-3.2.1.min.js"></script>
+     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
  </body>
  </html>
  

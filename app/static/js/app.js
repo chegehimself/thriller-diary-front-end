@@ -144,7 +144,7 @@ document.getElementById("signin-form").addEventListener("submit", function (even
             let SuccessmessageBody = document.getElementById("return");
             SuccessmessageBody.innerHTML = ResponseMessageSuccess
             // redirect for login
-            // window.location.href = "/login.html";
+            window.location.href = "/dashboard";
         }
 
         })
