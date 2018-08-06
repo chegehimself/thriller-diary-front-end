@@ -26,16 +26,16 @@
          <h1 id="title-header">Thriller Diary</h1>
          <nav>
          <ul>
-             <a href="modify.html"><li><button class="btn-toHome">Add</button></li></a>
-             <a href="entries.html"><li><button class="btn-toSign">View All Entries</button></li></a>
-             <a href="profile.html"><li><button class="btn-toSign btn-account">Account</button></li></a>
+             <a href="/modify"><li><button class="btn-toHome">Add</button></li></a>
+             <a href="/entries"><li><button class="btn-toSign">View All Entries</button></li></a>
+             <a href="/profile"><li><button class="btn-toSign btn-account">Account</button></li></a>
          </ul>
          </nav>
      </header>
  
      <main>
          <section id="welcome">
-         <p class="text-white">Welcome to your dashboard <span class="name">John English!</span> </p>
+         <p class="text-white">Welcome to your dashboard <span class="name">John English!</span></p>
          <h1 class="text-white">Here Are your Entries</h1>
         </section>
          <section class="section" id="marketing">
@@ -53,61 +53,12 @@
                     <th class="action" colspan="3">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody onload="getEnts()">
                 <tr>
                     <td class="tdata">An entry</td>
                     <td class="tdata">11/10/2018</td>
-                    <td class="view tdata"><li><a href="content.html"> View</a></li></td>
-                    <td class="edit tdata"><li><a href="modify.html"> Edit</a></li></td>
-                    <td class="delete tdata"><li><a href=""> Delete</a></li></td>
-                </tr>
-                <tr>
-                    <td class="tdata">An entry</td>
-                    <td class="tdata">11/10/2018</td>
-                    <td class="view tdata"><li><a href="content.html"> View</a></li></td>
-                    <td class="edit tdata"><li><a href="modify.html"> Edit</a></li></td>
-                    <td class="delete tdata"><li><a href=""> Delete</a></li></td>
-                </tr>
-                <tr>
-                    <td class="tdata">An entry</td>
-                    <td class="tdata">11/10/2018</td>
-                    <td class="view tdata"><li><a href="content.html"> View</a></li></td>
-                    <td class="edit tdata"><li><a href="modify.html"> Edit</a></li></td>
-                    <td class="delete tdata"><li><a href=""> Delete</a></li></td>
-                </tr>
-                <tr>
-                    <td class="tdata">An entry</td>
-                    <td class="tdata">11/10/2018</td>
-                    <td class="view tdata"><li><a href="content.html"> View</a></li></td>
-                    <td class="edit tdata"><li><a href="modify.html"> Edit</a></li></td>
-                    <td class="delete tdata"><li><a href=""> Delete</a></li></td>
-                </tr>
-                <tr>
-                    <td class="tdata">An entry</td>
-                    <td class="tdata">11/10/2018</td>
-                    <td class="view tdata"><li><a href="content.html"> View</a></li></td>
-                    <td class="edit tdata"><li><a href="modify.html"> Edit</a></li></td>
-                    <td class="delete tdata"><li><a href=""> Delete</a></li></td>
-                </tr>
-                <tr>
-                    <td class="tdata">An entry</td>
-                    <td class="tdata">11/10/2018</td>
-                    <td class="view tdata"><li><a href="content.html"> View</a></li></td>
-                    <td class="edit tdata"><li><a href="modify.html"> Edit</a></li></td>
-                    <td class="delete tdata"><li><a href=""> Delete</a></li></td>
-                </tr>
-                <tr>
-                    <td class="tdata">An entry</td>
-                    <td class="tdata">11/10/2018</td>
-                    <td class="view tdata"><li><a href="content.html"> View</a></li></td>
-                    <td class="edit tdata"><li><a href="modify.html"> Edit</a></li></td>
-                    <td class="delete tdata"><li><a href=""> Delete</a></li></td>
-                </tr>
-                <tr>
-                    <td class="tdata">An entry</td>
-                    <td class="tdata">11/10/2018</td>
-                    <td class="view tdata"><li><a href="content.html"> View</a></li></td>
-                    <td class="edit tdata"><li><a href="modify.html"> Edit</a></li></td>
+                    <td class="view tdata"><li><a href="/content"> View</a></li></td>
+                    <td class="edit tdata"><li><a href="/modify"> Edit</a></li></td>
                     <td class="delete tdata"><li><a href=""> Delete</a></li></td>
                 </tr>
             </tbody>

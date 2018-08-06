@@ -154,5 +154,5 @@ document.getElementById("signin-form").addEventListener("submit", function (even
 }
 
 const getEnts = () => {
-    alert(Token.token);
+    console.log(Token.token);
 }
