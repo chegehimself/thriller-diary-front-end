@@ -55,3 +55,10 @@ def modify(entryId):
     Edit entry
     """
     return render_template("modify.html")
+
+@app.route('/view/<int:entryId>')
+def view(entryId):
+    """
+    Preview entry
+    """
+    return render_template("content.html")

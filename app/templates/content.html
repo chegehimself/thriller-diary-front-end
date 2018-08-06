@@ -12,10 +12,10 @@
      <title>Thriller diary: Content</title>
 
      <!-- icon -->
-    <link rel="shortcut icon" type="image/png" href="imgs/thriller.png">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='imgs/thriller.png') }}">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
  </head>
  <body>
      <!-- Top section -->
@@ -23,9 +23,9 @@
         <h1 id="title-header">Thriller Diary</h1>
         <nav>
         <ul>
-            <a href="modify.html"><li><button class="btn-toHome">Add</button></li></a>
-            <a href="entries.html"><li><button class="btn-toSign">View All Entries</button></li></a>
-            <a href="profile.html"><li><button class="btn-toSign btn-account">Account</button></li></a>
+            <a href="/add"><li><button class="btn-toHome">Add</button></li></a>
+            <a href="/entries"><li><button class="btn-toSign">View All Entries</button></li></a>
+            <a href="/profile"><li><button class="btn-toSign btn-account">Account</button></li></a>
         </ul>
         </nav>
     </header>
@@ -33,32 +33,16 @@
         <section id="content" class="wrap-content">
             <div class="group-form">
                 
-                   <h2>The title</h2>
+                   <div id="title">
+
+                   </div>
+                   <div id="date">
+
+                   </div>
                 
-                   <h2> <i><em> <span class="date">11/10/2018</span> </em></i></h2>
-                
-                <p>
-                        Sorry I didn’t get to write last night! It was such a busy day, and I was too tired to write 
-                        anything...
-
-
-                        I was right about Sarah not being okay. Yesterday, she barely spoke to me, and anything she 
-                        did say was a “yes” or “no” answer.  I tried so hard to get her to cheer up, but of course she 
-                        just kept saying, “I’m fine, I’m fine.” Uggh! I wish she would just be honest with me! I’m always 
-                        honest with her! It’s not fair!
+                <div id="description">
                         
-                </p>
-
-                <p>
-                        Jane also seemed mad all day because she could tell that Sarah was being fake nice to her. I hate 
-                        being in the middle of all of this. What am I supposed to do? Sarah’s been my friend since forever,
-                         and Jane is my new friend, and I don’t want to hurt anyone’s feelings! But I think that Jane is 
-                         right about Sarah. I think Sarah sometimes gets too dramatic about things. She’s being kind of a 
-                         brat about all of this, but I don’t want to tell her that to her face, she’d never forgive me.
-                        
-                        
-                        I wish things were simple like they were in elementary school
-                </p>
+                </div>
 
             </div>
         </section>
@@ -70,6 +54,9 @@
               <p>&copy; 2018 Thriller Diary</p>
             </div>
     </footer>
+<!-- scripts -->
+<script src="{{ url_for('static', filename='js/single.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
  </body>
  </html>
  
