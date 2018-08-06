@@ -48,6 +48,11 @@ const Modify = () => {
     })
     .then((response)=>{
         response.json().then((data) => {
+            console.log(data.status)
+            if (data.status == `success`){
+                let errors = document.getElementById('errors');
+                errors.innerHTML = `<h3 class="text-green">Entry Updated!</h3>`;
+            }
         })}).catch(err => console.log(err));
     });
     }
