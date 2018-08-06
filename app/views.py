@@ -40,7 +40,7 @@ def add():
     """
     Add new entry page rendering
     """
-    return render_template("modify.html")
+    return render_template("add.html")
 
 @app.route('/entries')
 def entries():
