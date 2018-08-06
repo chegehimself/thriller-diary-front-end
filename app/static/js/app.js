@@ -183,11 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     .then((response)=>{
-        console.log(response.status)
         response.json().then((data) => {
             let entries_view = document.getElementById('tbody');
             const entries = Object.values(data['Entries'])
-            console.log(entries)
             if (entries.length == 0){
                 entries_view.innerHTML = `<div><p>Your entries will appear here</p></div>`;
             }
