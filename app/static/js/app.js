@@ -1,5 +1,8 @@
 'use strict'
 
+/////////////////////////////////////////////////////
+//   HOMEPAGE WELCOME MESSAEGE                     //
+/////////////////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', () => {
     // fetch for landing page
 let message = document.getElementById('welcoming-message');
@@ -26,6 +29,10 @@ fetch(`${WelcomeUrl}`, {
 
 // signup
 // SignUp user
+
+/////////////////////////////////////////////////////
+//   USER SIGNUP                                   //
+/////////////////////////////////////////////////////
 const signUp = () => {
 document.getElementById("signup-form").addEventListener("submit", (event) => {
     event.preventDefault();
@@ -90,7 +97,9 @@ document.getElementById("signup-form").addEventListener("submit", (event) => {
     });
 }
 
-// sign-in
+/////////////////////////////////////////////////////
+//   USER LOGOIN                                   //
+/////////////////////////////////////////////////////
 
 let Token = {};
 
@@ -157,6 +166,10 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
     });
 
 }
+
+/////////////////////////////////////////////////////
+//  FETCH ALL ENTRIES                              //
+/////////////////////////////////////////////////////
 
 document.addEventListener('DOMContentLoaded', () => {
     let message = document.getElementById('welcoming-message');
