@@ -27,7 +27,7 @@ fetch(`${WelcomeUrl}`, {
 // signup
 // SignUp user
 const signUp = () => {
-document.getElementById("signup-form").addEventListener("submit", function (event) {
+document.getElementById("signup-form").addEventListener("submit", (event) => {
     event.preventDefault();
     const password = document.getElementById("password");
     const confirmation = document.getElementById("confirmation");
@@ -95,7 +95,7 @@ document.getElementById("signup-form").addEventListener("submit", function (even
 let Token = {};
 
 const signIn = () => {
-document.getElementById("signin-form").addEventListener("submit", function (event) {
+document.getElementById("signin-form").addEventListener("submit", (event) => {
     event.preventDefault();
     const password = document.getElementById("password");
     const confirmation = document.getElementById("confirmation");
