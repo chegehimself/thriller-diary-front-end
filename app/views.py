@@ -48,3 +48,10 @@ def entries():
     view all entries
     """
     return render_template("entries.html")
+
+@app.route('/modify/<int:entryId>')
+def modify(entryId):
+    """
+    Edit entry
+    """
+    return render_template("modify.html")
