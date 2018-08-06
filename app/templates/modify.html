@@ -12,10 +12,10 @@
      <title>Thriller Diary: Modify</title>
 
      <!-- icon -->
-    <link rel="shortcut icon" type="image/png" href="imgs/thriller.png">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='imgs/thriller.png') }}">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
  </head>
  <body>
 
@@ -24,8 +24,8 @@
         <h1 id="title-header">Thriller Diary</h1>
         <nav>
         <ul>
-            <a href="dashboard.html"><li><button class="btn-toHome">Dashboard</button></li></a>
-            <a href="entries.html"><li><button class="btn-toSign">View All Entries</button></li></a>
+            <a href="/dashboard"><li><button class="btn-toHome">Dashboard</button></li></a>
+            <a href="/entries"><li><button class="btn-toSign">View All Entries</button></li></a>
         </ul>
         </nav>
     </header>
@@ -33,21 +33,24 @@
     <main>
         <section id="modify-sec">
             <h1 class="font-style-me">Hope you are doing fine.Let's write some story.</h1>
-            <form action="#">
+            <form id="add-form">
+                <div class="group-form" id="errors">
+                    
+                </div>
                 <div class="group-form">
                     <p><b>Title</b></p>
                     <input class="form-input" type="text" id="title" name="title" placeholder="eg. At NewYork ">
                 </div>
-                <div class="group-form">
+                <!-- <div class="group-form">
                     <p><b>Date</b></p>
                     <input class="form-input" type="date" id="story-date" min="2018-01-01" max="2099-01-31" name="story-date" placeholder="Date">
-                </div>
+                </div> -->
                 <div class="group-form">
                     <p><b>Story</b></p>
-                    <textarea class="form-input" name="story-description" id="" cols="30" rows="10" placeholder="A breif story"></textarea>
+                    <textarea class="form-input" name="story-description" id="description" cols="30" rows="10" placeholder="A breif story"></textarea>
                 </div>
                 <div>
-                    <button type="submit" class="btn-toSign">Submit</button>
+                    <button onclick="AddEntry()" class="btn-toSign">Add</button>
                 </div>
             </form>
         </section>
@@ -59,6 +62,10 @@
               <p>&copy; 2018 Thriller Diary</p>
             </div>
     </footer>
+
+    <!-- scripts -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
  </body>
  </html>
  

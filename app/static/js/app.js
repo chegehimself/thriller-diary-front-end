@@ -157,7 +157,7 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
             const ResponseMessageSuccess = `<h3 class="text-green">Login successful!</h3>`;
             let SuccessmessageBody = document.getElementById("return");
             SuccessmessageBody.innerHTML = ResponseMessageSuccess
-            // redirect for login
+            // redirect for dasho
             window.location.href = "/dashboard";
         }
 
@@ -209,4 +209,43 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })})
             .catch(err => console.log(err));
-})
+});
+
+
+///////////////////////////////////
+//              Add entries      //
+///////////////////////////////////
+
+const AddEntry = () => {
+    document.getElementById("add-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+    const token = JSON.parse(localStorage.getItem('access_token'));
+    const title = document.getElementById("title");
+    const description = document.getElementById("description");
+    const errors = document.getElementById("errors");
+
+    const EntryData = {
+        title: title.value,
+        description: description.value,
+    };
+
+    fetch("http://127.0.0.1:5000/api/v1/entries/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "access_token": token
+        },
+        body: JSON.stringify(EntryData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data.status)
+        if (data.status == 401){
+            errors.innerHTML = `<h3 class="text-red">Please Input all fields correctly!</h3>`;
+        }
+        else if (data.status == `success`){
+            errors.innerHTML = `<h3 class="text-green">Entry Added!</h3>`;
+        }
+}).catch(err => console.log(err));
+});
+}

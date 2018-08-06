@@ -34,3 +34,10 @@ def dashboard():
     Render the dashboard page
     """
     return render_template("dashboard.html")
+
+@app.route('/add')
+def add():
+    """
+    Add new entry page rendering
+    """
+    return render_template("modify.html")
