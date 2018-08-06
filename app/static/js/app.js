@@ -194,18 +194,17 @@ document.addEventListener('DOMContentLoaded', () => {
             else{
 
                 let all_entries = `<tr>
-                <td class="tdata">${entries[0].title}</td>
-                <td class="view tdata"><li><a href="/view/${entries[0].id}"> View</a></li></td>
-                <td class="edit tdata"><li><a href="/modify/${entries[0].id}"> Edit</a></li></td>
-                <td class="delete tdata"><li><a href="/delete${entries[0].title}"> Delete</a></li></td> 
-                </tr>`;
+                <th>Entry</th>
+                <th>Date</th>
+                <th class="action" colspan="3">Actions</th>
+            </tr>`;
                 entries.forEach((single) => {
                     all_entries +=
                     `<tr>
                     <td class="tdata">${single.title}</td>
                     <td class="view tdata"><li><a href="/view/${single.id}"> View</a></li></td>
                     <td class="edit tdata"><li><a href="/modify/${single.id}"> Edit</a></li></td>
-                    <td class="delete tdata"><li><a href="/delete/${single.title}"> Delete</a></li></td> 
+                    <td class="delete tdata"><li><a href="/delete/${single.id}"> Delete</a></li></td> 
                     </tr>`;
                 })
                 entries_view.innerHTML = all_entries;
