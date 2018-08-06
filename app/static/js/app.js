@@ -120,7 +120,8 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
         .then(data => {
         console.log(data['token'])
         // user token
-        Token.token = data['token'];
+        const token = data['token']
+        localStorage.setItem('access_token', JSON.stringify(token));
         const response_message  = Object.values(data);
         console.log(response_message[1])
         let received = response_message[1];
@@ -157,22 +158,28 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
 
 }
 
-const getEnts = () => {
-    console.log(Token.token);
+document.addEventListener('DOMContentLoaded', () => {
     let message = document.getElementById('welcoming-message');
-
-    const WelcomeUrl = 'http://127.0.0.1:5000/api/v1/entries/';
-    fetch(`${WelcomeUrl}`)
+    const token = JSON.parse(localStorage.getItem('access_token'));
+    const EntriesUrl = 'http://127.0.0.1:5000/api/v1/entries/';
+    fetch(`${EntriesUrl}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "access_token": token
+        }
+    })
 
         .then((response)=>{
+            console.log(response.status)
             response.json().then((data) => {
             console.log(data)
-            const warmWelcome = Object.values(data.Message)
+            const entries = Object.values(data.Message)
 
-            const FetchedMessage =  `<h2 class="text-white">${warmWelcome}</h2>`
+            const FetchedMessage =  `<h2 class="text-white">${entries}</h2>`
 
             message.innerHTML = FetchedMessage
             
             })})
             .catch(err => console.log(err));
-}
+})
