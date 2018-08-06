@@ -1,11 +1,14 @@
 'use strict'
-const Welcome = () => {
-// fetch for landing page
+
+document.addEventListener('DOMContentLoaded', () => {
+    // fetch for landing page
 let message = document.getElementById('welcoming-message');
 
 // const WelcomeUrl = 'http://api-thriller-diary.herokuapp.com/api/v1/auth/';
 const WelcomeUrl = 'http://127.0.0.1:5000/api/v1/auth/';
-fetch(`${WelcomeUrl}`)
+fetch(`${WelcomeUrl}`, {
+    method: "GET"
+})
 
     .then((response)=>{
         response.json().then((data) => {
@@ -18,8 +21,9 @@ fetch(`${WelcomeUrl}`)
         
         })})
         .catch(err => console.log(err));
+    // your code here
+ }, false);
 
-}
 // signup
 // SignUp user
 const signUp = () => {
@@ -155,4 +159,20 @@ document.getElementById("signin-form").addEventListener("submit", function (even
 
 const getEnts = () => {
     console.log(Token.token);
+    let message = document.getElementById('welcoming-message');
+
+    const WelcomeUrl = 'http://127.0.0.1:5000/api/v1/entries/';
+    fetch(`${WelcomeUrl}`)
+
+        .then((response)=>{
+            response.json().then((data) => {
+            console.log(data)
+            const warmWelcome = Object.values(data.Message)
+
+            const FetchedMessage =  `<h2 class="text-white">${warmWelcome}</h2>`
+
+            message.innerHTML = FetchedMessage
+            
+            })})
+            .catch(err => console.log(err));
 }
