@@ -276,3 +276,13 @@ document.addEventListener('DOMContentLoaded', () => {
         })})
             .catch(err => console.log(err));
 });
+
+
+///////////////////////////////////
+//  USER LOGOUT                 //
+//////////////////////////////////
+
+const LogOut = () => {
+    localStorage.removeItem('access_token');
+    window.location.href = "/signin";
+}
