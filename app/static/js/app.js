@@ -255,8 +255,8 @@ const AddEntry = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const token = JSON.parse(localStorage.getItem('access_token'));
-    const EntriesUrl = '//api-thriller-diary.herokuapp.com/api/v1/users/profile';
-    fetch(`${EntriesUrl}`, {
+    const ProfileUrl = '//api-thriller-diary.herokuapp.com/api/v1/users/profile';
+    fetch(`${ProfileUrl}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((response)=>{
         response.json().then((data) => {
             const user = Object.values(data['Profile'])
-            console.log(user[1])
+            console.log(user[0])
             const userinfo = document.getElementById("name");
             const usermail = document.getElementById("email");
             userinfo.innerHTML = `${user[1]}!`;
@@ -316,3 +316,41 @@ const LogOut = () => {
     localStorage.removeItem('access_token');
     window.location.href = "/signin";
 }
+
+//////////////////////////////////////
+// CHANGE PASSWORD                  //
+//////////////////////////////////////
+
+const ChagePassword = () => {
+    document.getElementById("password-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+    // get token
+    const token = JSON.parse(localStorage.getItem('access_token'));
+    event.preventDefault();
+    const PasswordUrl = `//api-thriller-diary.herokuapp.com/api/v1/users/change-password/${user_id}`;
+    const title = document.getElementById('title');
+    const description = document.getElementById('description');
+
+    const content = {
+        title: title.value,
+        description: description.value
+    }
+
+    fetch(`${PasswordUrl}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "access_token": token
+        },
+        body: JSON.stringify(content)
+    })
+    .then((response)=>{
+        response.json().then((data) => {
+            console.log(data.status)
+            if (data.status == `success`){
+                let errors = document.getElementById('errors');
+                errors.innerHTML = `<h3 class="text-green">Entry Updated!</h3>`;
+            }
+        })}).catch(err => console.log(err));
+    });
+    }
