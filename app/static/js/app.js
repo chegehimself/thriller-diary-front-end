@@ -79,7 +79,7 @@ document.getElementById("signup-form").addEventListener("submit", (event) => {
                 messageBody.innerHTML = ResponseMessage
             }
             else if(received == `Invalid usernamee.Try again`) {
-                const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
+                const ResponseMessage =  `<h3 class="text-red">Invalid username.Try again</h3>`;
                 let messageBody = document.getElementById("return");
                 messageBody.innerHTML = ResponseMessage
             }
