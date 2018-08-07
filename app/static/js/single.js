@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const token = JSON.parse(localStorage.getItem('access_token'));
     entryId = Number(location.pathname.match(/\d+/)[0]);
-    const EntriesUrl = `http://127.0.0.1:5000/api/v1/entries/${entryId}`;
+    const EntriesUrl = `http://api-thriller-diary.herokuapp.com/api/v1/entries/${entryId}`;
     fetch(`${EntriesUrl}`, {
         method: "GET",
         headers: {
