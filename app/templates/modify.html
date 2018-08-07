@@ -1,0 +1,98 @@
+<!-- 
+    * modify.html
+    * A file for adding new entries and modifying them
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Thriller Diary: Modify</title>
+
+     <!-- icon -->
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='imgs/thriller.png') }}">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+ </head>
+ <body>
+        <script>
+                $(document).ready(function() {
+                    const token = JSON.parse(localStorage.getItem('access_token'));
+                    console.log(token)
+                    if (token == null)
+                    {
+                        window.location.href = "/signin";
+                    }
+                    const EntriesUrl = '//api-thriller-diary.herokuapp.com/api/v1/entries/';
+                    fetch(`${EntriesUrl}`, {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "access_token": token
+                }
+            })
+            .then((response)=>{
+                if (response.status != 200)
+                {
+                    window.location.href = "/signin";
+                } 
+                console.log(response)
+        })
+                    .catch(err => console.log(err));
+        
+                  });
+            </script>
+     <!-- Navigation bar -->
+     <header id="modify-top" class="dashtop">
+        <h1 id="title-header">Thriller Diary</h1>
+        <nav>
+        <ul>
+            <a href="/dashboard"><li><button class="btn-toHome">Dashboard</button></li></a>
+            <a href="/entries"><li><button class="btn-toSign">View All Entries</button></li></a>
+        </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="modify-sec">
+            <h1 class="font-style-me">Hope you are doing fine.Let's write some story.</h1>
+            <form id="add-form">
+                <div class="group-form" id="errors">
+                    
+                </div>
+                <div class="group-form">
+                    <p><b>Title</b></p>
+                    <input class="form-input" type="text" id="title" name="title" placeholder="eg. At NewYork ">
+                </div>
+                <!-- <div class="group-form">
+                    <p><b>Date</b></p>
+                    <input class="form-input" type="date" id="story-date" min="2018-01-01" max="2099-01-31" name="story-date" placeholder="Date">
+                </div> -->
+                <div class="group-form">
+                    <p><b>Story</b></p>
+                    <textarea class="form-input" name="story-description" id="description" cols="30" rows="10" placeholder="A breif story"></textarea>
+                </div>
+                <div>
+                    <button onclick="Modify()" class="btn-toSign">UPDATE</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="section_footer">
+            <div class="wrap-content">
+              <p>&copy; 2018 Thriller Diary</p>
+            </div>
+    </footer>
+
+    <!-- scripts -->
+    <script src="{{ url_for('static', filename='js/modify.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+ </body>
+ </html>
+ 

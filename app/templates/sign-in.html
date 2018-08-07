@@ -12,10 +12,10 @@
     <title>Thriller Diary: sign-in</title>
 
     <!-- icon -->
-    <link rel="shortcut icon" type="image/png" href="imgs/thriller.png">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='imgs/thriller.png') }}">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="sign">
 
@@ -23,15 +23,18 @@
         <h2 id="title-header">Thriller Diary</h2>
         <nav>
             <ul>
-                <li><a href="index.html"><button class="btn-toHome">Home</button></a></li>
-                <li><a href="sign-up.html"><button class="btn-toSign">Sign-Up</button></a></li>
+                <li><a href="/"><button class="btn-toHome">Home</button></a></li>
+                <li><a href="/signup"><button class="btn-toSign">Sign-Up</button></a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="sign wrap-content">
-            <form action="dashboard.html">
+            <form id="signin-form">
+                <div id="return" class="group-form">
+                    
+                </div>
                 <div class="group-form">
                     <input type="email" id="email" class="form-input" placeholder="Email" required>
                 </div>
@@ -39,7 +42,7 @@
                     <input type="password" id="password" class="form-input" placeholder="Passowrd" required>
                 </div>
                 <div class="group-form">
-                    <button type="submit" class="btn-reg">Sing In</button>
+                    <button onclick="signIn()" class="btn-reg">Sing In</button>
                 </div>
             </form>
         </section>
@@ -51,5 +54,8 @@
               <p>&copy; 2018 Thriller Diary</p>
             </div>
     </footer>
+    <!-- scripts -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

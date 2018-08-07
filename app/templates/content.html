@@ -1,0 +1,96 @@
+<!-- 
+    * content.html
+    * This file will contain a view of content on an entry
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Thriller diary: Content</title>
+
+     <!-- icon -->
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='imgs/thriller.png') }}">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+ </head>
+ <body>
+        <script>
+                $(document).ready(function() {
+                    const token = JSON.parse(localStorage.getItem('access_token'));
+                    console.log(token)
+                    if (token == null)
+                    {
+                        window.location.href = "/signin";
+                    }
+                    const EntriesUrl = '//api-thriller-diary.herokuapp.com/api/v1/entries/';
+                    fetch(`${EntriesUrl}`, {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "access_token": token
+                }
+            })
+            .then((response)=>{ 
+                if (response.status != 200)
+                {
+                    window.location.href = "/signin";
+                }
+                console.log(response)
+        })
+                    .catch(err => console.log(err));
+        
+                  });
+            </script>
+     <!-- Top section -->
+     <header id="" class="dashtop">
+        <h1 id="title-header">Thriller Diary</h1>
+        <nav>
+        <ul>
+            <a href="/add"><li><button class="btn-toHome">Add</button></li></a>
+            <a href="/entries"><li><button class="btn-toSign">View All Entries</button></li></a>
+            <a href="/profile"><li><button class="btn-toSign btn-account">Account</button></li></a>
+        </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="content" class="wrap-content">
+            <div class="text-right group-form">
+                <button class="btn-reg delete-ent click-off" onclick="DeleteEntry()">Delete</button>
+            </div>
+            <div id="errors" class="group-form">
+            </div>
+            <div class="group-form single">
+                
+                   <div id="title">
+
+                   </div>
+                   <div id="date">
+
+                   </div>
+                
+                <div id="description">
+                        
+                </div>
+
+            </div>
+        </section>
+    </main>
+     
+    <!-- footer -->
+    <footer class="section_footer">
+            <div class="wrap-content">
+              <p>&copy; 2018 Thriller Diary</p>
+            </div>
+    </footer>
+<!-- scripts -->
+<script src="{{ url_for('static', filename='js/single.js') }}"></script>
+<script src="{{ url_for('static', filename='js/delete_entry.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+ </body>
+ </html>
+ 

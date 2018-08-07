@@ -135,7 +135,7 @@ button {
 
 #content p {
     font-size: 1em;
-    text-align: left;
+    text-align: center;
 }
 
 .reminder {
@@ -158,9 +158,19 @@ main {
     margin-bottom: 4em;
 }
 
+.text-right {
+    margin-right: -640px;
+}
+.group-form.single {
+    margin-top: -50px;
+}
 /*********
 Color
 ***********/
+.delete-ent {
+    background: red !important;
+}
+
 .section_top {
     background-color: #2579A9;
 }
@@ -259,7 +269,7 @@ td {
     color: #5CB85C;
 }
 
-.delete a {
+.text-red, .delete a {
     color: #C9302C;
 } 
 
@@ -296,6 +306,13 @@ td {
   .home_footer {
       background: #332E35;
   }
+
+  .text-green{
+      color: #5CB85C;
+  }
+  .text-blue{
+    color: rgb(84, 82, 201);
+}
 /*********
 Typography
 ***********/
@@ -337,6 +354,10 @@ p {
 
 .btn-toHome, .btn-toSign {
     font-size: 1em;
+}
+
+span.date {
+    text-decoration: underline;
 }
 
 /******
@@ -410,5 +431,11 @@ p {
 
     .reminder {
         width: 80%;
+    }
+    .text-right {
+        margin-right: -250px;
+    }
+    .group-form.single {
+        margin-top: 0px;
     }
 }
