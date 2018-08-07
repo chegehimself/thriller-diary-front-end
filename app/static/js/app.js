@@ -248,3 +248,29 @@ const AddEntry = () => {
 }).catch(err => console.log(err));
 });
 }
+
+/////////////////////////////////////////////////////
+//  FETCH USER PROFILE                             //
+/////////////////////////////////////////////////////
+
+document.addEventListener('DOMContentLoaded', () => {
+    const token = JSON.parse(localStorage.getItem('access_token'));
+    const EntriesUrl = 'http://127.0.0.1:5000/api/v1/users/profile';
+    fetch(`${EntriesUrl}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "access_token": token
+        }
+    })
+
+    .then((response)=>{
+        response.json().then((data) => {
+            const user = Object.values(data['Profile'])
+            console.log(user[1])
+            const userinfo = document.getElementById("name");
+            userinfo.innerHTML = `${user[1]}!`;
+
+        })})
+            .catch(err => console.log(err));
+});

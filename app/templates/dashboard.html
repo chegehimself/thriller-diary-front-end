@@ -35,7 +35,7 @@
  
      <main>
          <section id="welcome">
-         <p class="text-white">Welcome to your dashboard <span class="name">John English!</span></p>
+         <p class="text-white">Welcome to your dashboard <span id="name" class="name"></span></p>
          <h1 class="text-white">Here Are your Entries</h1>
         </section>
          <section class="section" id="marketing">
@@ -69,7 +69,6 @@
     
      <!-- js -->
      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-     <script src="{{ url_for('static', filename='js/delete_entry.js') }}"></script>
      <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
  </body>
  </html>
