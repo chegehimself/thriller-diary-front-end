@@ -310,6 +310,9 @@ td {
   .text-green{
       color: #5CB85C;
   }
+  .text-blue{
+    color: rgb(84, 82, 201);
+}
 /*********
 Typography
 ***********/

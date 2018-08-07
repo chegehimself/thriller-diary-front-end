@@ -222,6 +222,7 @@ const AddEntry = () => {
     const title = document.getElementById("title");
     const description = document.getElementById("description");
     const errors = document.getElementById("errors");
+    errors.innerHTML = `<h4 class="text-blue">processing... </h4>`;
 
     const EntryData = {
         title: title.value,
