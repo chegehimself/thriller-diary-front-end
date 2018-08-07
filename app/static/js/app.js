@@ -117,6 +117,7 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
         email: email.value,
         password: password.value,
     };
+    console.log(JSON.stringify(credentials))
     //   fetch("//api-thriller-diary.herokuapp.com/api/v1/auth/login/", {
     fetch("//api-thriller-diary.herokuapp.com/api/v1/auth/login", {
             method: "POST",
