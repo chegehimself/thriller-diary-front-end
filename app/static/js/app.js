@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // fetch for landing page
 let message = document.getElementById('welcoming-message');
 
-// const WelcomeUrl = 'http://api-thriller-diary.herokuapp.com/api/v1/auth/';
-const WelcomeUrl = 'http://api-thriller-diary.herokuapp.com/api/v1/auth/';
+// const WelcomeUrl = '//api-thriller-diary.herokuapp.com/api/v1/auth/';
+const WelcomeUrl = '//api-thriller-diary.herokuapp.com/api/v1/auth/';
 fetch(`${WelcomeUrl}`, {
     method: "GET"
 })
@@ -57,8 +57,8 @@ document.getElementById("signup-form").addEventListener("submit", (event) => {
           username: username.value
       };
       console.log(`${credentials}`)
-    //   fetch("http://api-thriller-diary.herokuapp.com/api/v1/auth/signup/", {
-      fetch("http://api-thriller-diary.herokuapp.com/api/v1/auth/signup", {
+    //   fetch("//api-thriller-diary.herokuapp.com/api/v1/auth/signup/", {
+      fetch("//api-thriller-diary.herokuapp.com/api/v1/auth/signup", {
               method: "POST",
               headers: {
                   "Content-Type": "application/json"
@@ -117,8 +117,8 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
         email: email.value,
         password: password.value,
     };
-    //   fetch("http://api-thriller-diary.herokuapp.com/api/v1/auth/login/", {
-    fetch("http://api-thriller-diary.herokuapp.com/api/v1/auth/login", {
+    //   fetch("//api-thriller-diary.herokuapp.com/api/v1/auth/login/", {
+    fetch("//api-thriller-diary.herokuapp.com/api/v1/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -173,7 +173,7 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const token = JSON.parse(localStorage.getItem('access_token'));
-    const EntriesUrl = 'http://api-thriller-diary.herokuapp.com/api/v1/entries/';
+    const EntriesUrl = '//api-thriller-diary.herokuapp.com/api/v1/entries/';
     fetch(`${EntriesUrl}`, {
         method: "GET",
         headers: {
@@ -228,7 +228,7 @@ const AddEntry = () => {
         description: description.value,
     };
 
-    fetch("http://api-thriller-diary.herokuapp.com/api/v1/entries/", {
+    fetch("//api-thriller-diary.herokuapp.com/api/v1/entries/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -255,7 +255,7 @@ const AddEntry = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const token = JSON.parse(localStorage.getItem('access_token'));
-    const EntriesUrl = 'http://api-thriller-diary.herokuapp.com/api/v1/users/profile';
+    const EntriesUrl = '//api-thriller-diary.herokuapp.com/api/v1/users/profile';
     fetch(`${EntriesUrl}`, {
         method: "GET",
         headers: {

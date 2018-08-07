@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     description = document.getElementById('description');
     const token = JSON.parse(localStorage.getItem('access_token'));
     entryId = Number(location.pathname.match(/\d+/)[0]);
-    const EntriesUrl = `http://api-thriller-diary.herokuapp.com/api/v1/entries/${entryId}`;
+    const EntriesUrl = `//api-thriller-diary.herokuapp.com/api/v1/entries/${entryId}`;
     fetch(`${EntriesUrl}`, {
         method: "GET",
         headers: {
@@ -29,7 +29,7 @@ const Modify = () => {
     // get token
     const token = JSON.parse(localStorage.getItem('access_token'));
     event.preventDefault();
-    const EntriesUrl = `http://127.0.0.1:5000/api/v1/entries/${entryId}`;
+    const EntriesUrl = `//api-thriller-diary.herokuapp.com/api/v1/entries/${entryId}`;
     const title = document.getElementById('title');
     const description = document.getElementById('description');
 

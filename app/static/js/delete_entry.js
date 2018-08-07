@@ -13,7 +13,7 @@ const DeleteEntry = () => {
     const errors = document.getElementById("errors");
     const fordelete = document.getElementById("toDelete");
     console.log(entryId)
-    fetch(`http://api-thriller-diary.herokuapp.com/api/v1/entries/${entryId}`, {
+    fetch(`//api-thriller-diary.herokuapp.com/api/v1/entries/${entryId}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
