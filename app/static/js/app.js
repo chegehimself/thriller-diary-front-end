@@ -368,7 +368,7 @@ const ChangePassword = () => {
                     errors.innerHTML = `<h5 class="text-green">updating!</h5>`
                     console.log(data.status)
                     if (data.status == `success`){
-                        errors.innerHTML = `<h3 class="text-green">Entry Updated!</h3>`;
+                        errors.innerHTML = `<h3 class="text-green">Password Updated!</h3>`;
                     }
                     else{
                         errors.innerHTML = `<h3 class="text-green">Incorrect credentials!</h3>`;
