@@ -432,4 +432,7 @@ span.date {
     .text-right {
         margin-right: -250px;
     }
+    .group-form.single {
+        margin-top: 0px;
+    }
 }
