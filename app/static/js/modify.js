@@ -32,6 +32,8 @@ const Modify = () => {
     const EntriesUrl = `//api-thriller-diary.herokuapp.com/api/v1/entries/${entryId}`;
     const title = document.getElementById('title');
     const description = document.getElementById('description');
+    let errors = document.getElementById('errors');
+    errors.innerHTML = `<h3 class="text-blue">Processing...</h3>`;
 
     const content = {
         title: title.value,
@@ -52,6 +54,10 @@ const Modify = () => {
             if (data.status == `success`){
                 let errors = document.getElementById('errors');
                 errors.innerHTML = `<h3 class="text-green">Entry Updated!</h3>`;
+            }
+            else
+            {
+                errors.innerHTML = `<h3 class="text-red">Please input all the fields correctly!</h3>`;
             }
         })}).catch(err => console.log(err));
     });
