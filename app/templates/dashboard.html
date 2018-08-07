@@ -20,6 +20,29 @@
      <title>Thriller Diary</title>
  </head>
  <body>
+        <script>
+                $(document).ready(function() {
+                    const token = JSON.parse(localStorage.getItem('access_token'));
+                    console.log(token)
+                    if (token == null)
+                    {
+                        window.location.href = "/signin";
+                    }
+                    const EntriesUrl = '//api-thriller-diary.herokuapp.com/api/v1/entries/';
+                    fetch(`${EntriesUrl}`, {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "access_token": token
+                }
+            })
+            .then((response)=>{ 
+                console.log(response)
+        })
+      .catch(err => console.log(err));
+        
+    });
+            </script>
      <!-- <h1>I am the Body of Thriller Diary Homepage</h1> -->
      <!-- Top section -->
      <header id="" class="dashtop">
