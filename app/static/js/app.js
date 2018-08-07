@@ -89,7 +89,7 @@ document.getElementById("signup-form").addEventListener("submit", (event) => {
                 let SuccessmessageBody = document.getElementById("return");
                 SuccessmessageBody.innerHTML = ResponseMessageSuccess
                 // redirect for login
-                window.location.href = "/login";
+                window.location.href = "/signin";
             }
     
           })
