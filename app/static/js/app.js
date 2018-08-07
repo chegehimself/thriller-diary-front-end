@@ -321,36 +321,61 @@ const LogOut = () => {
 // CHANGE PASSWORD                  //
 //////////////////////////////////////
 
-const ChagePassword = () => {
+const ChangePassword = () => {
     document.getElementById("password-form").addEventListener("submit", (event) => {
         event.preventDefault();
     // get token
     const token = JSON.parse(localStorage.getItem('access_token'));
-    event.preventDefault();
-    const PasswordUrl = `//api-thriller-diary.herokuapp.com/api/v1/users/change-password/${user_id}`;
-    const title = document.getElementById('title');
-    const description = document.getElementById('description');
 
-    const content = {
-        title: title.value,
-        description: description.value
-    }
-
-    fetch(`${PasswordUrl}`, {
-        method: "PUT",
+    let errors = document.getElementById('status');
+    errors.innerHTML = `<h3 class="text-green">Processing...</h3>`
+    // fetch userid
+    const ProfileUrl = '//api-thriller-diary.herokuapp.com/api/v1/users/profile';
+    fetch(`${ProfileUrl}`, {
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
             "access_token": token
-        },
-        body: JSON.stringify(content)
+        }
     })
+
     .then((response)=>{
         response.json().then((data) => {
-            console.log(data.status)
-            if (data.status == `success`){
-                let errors = document.getElementById('errors');
-                errors.innerHTML = `<h3 class="text-green">Entry Updated!</h3>`;
+            const user = Object.values(data['Profile'])
+            console.log(user[0])
+            const PasswordUrl = `//api-thriller-diary.herokuapp.com/api/v1/users/change_password/`;
+            const old_password = document.getElementById('old-password');
+            const new_password = document.getElementById('new-password');
+            const confirm = document.getElementById('confirmation');
+        
+            const content = {
+                old_password: old_password.value,
+                new_password: new_password.value,
+                confirmation: confirm.value
             }
-        })}).catch(err => console.log(err));
+        
+            fetch(`${PasswordUrl}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "access_token": token
+                },
+                body: JSON.stringify(content)
+            })
+            .then((response)=>{
+                response.json().then((data) => {
+                    let errors = document.getElementById('status');
+                    errors.innerHTML = `<h5 class="text-green">updating!</h5>`
+                    console.log(data.status)
+                    if (data.status == `success`){
+                        errors.innerHTML = `<h3 class="text-green">Entry Updated!</h3>`;
+                    }
+                    else{
+                        errors.innerHTML = `<h3 class="text-green">Incorrect credentials!</h3>`;
+                    }
+                })}).catch(err => console.log(err));
+        })
+    })
+        
     });
     }
