@@ -31,7 +31,12 @@
     </header>
     <main>
         <section id="content" class="wrap-content">
-            <div class="group-form">
+            <div class="text-right group-form">
+                <button class="btn-reg delete-ent click-off" onclick="DeleteEntry()">Delete</button>
+            </div>
+            <div id="errors" class="group-form">
+            </div>
+            <div class="group-form single">
                 
                    <div id="title">
 
@@ -56,6 +61,7 @@
     </footer>
 <!-- scripts -->
 <script src="{{ url_for('static', filename='js/single.js') }}"></script>
+<script src="{{ url_for('static', filename='js/delete_entry.js') }}"></script>
 <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
  </body>
  </html>

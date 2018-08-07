@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(data)
             description.innerHTML = `<p>${data.entry.description}</p>`;
             title.innerHTML = `<h2>${data.entry.title}</h2>`;
-            date.innerHTML = `<h4> <i><em> <span class="date">${data.entry.created}</span> </em></i></h4>`
+            date.innerHTML = `<h3> <i><em> <span class="date">${data.entry.created}</span> </em></i></h3>`
         })})
             .catch(err => console.log(err));
 });

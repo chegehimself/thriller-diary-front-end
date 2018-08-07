@@ -158,9 +158,19 @@ main {
     margin-bottom: 4em;
 }
 
+.text-right {
+    margin-right: -640px;
+}
+.group-form.single {
+    margin-top: -50px;
+}
 /*********
 Color
 ***********/
+.delete-ent {
+    background: red !important;
+}
+
 .section_top {
     background-color: #2579A9;
 }
@@ -343,6 +353,10 @@ p {
     font-size: 1em;
 }
 
+span.date {
+    text-decoration: underline;
+}
+
 /******
  media 
 *******/
@@ -414,5 +428,8 @@ p {
 
     .reminder {
         width: 80%;
+    }
+    .text-right {
+        margin-right: -250px;
     }
 }

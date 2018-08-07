@@ -190,19 +190,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 entries_view.innerHTML = `<div><p>Your entries will appear here</p></div>`;
             }
             else{
-
                 let all_entries = `<tr>
-                <th>Entry</th>
-                <th>Date</th>
-                <th class="action" colspan="3">Actions</th>
-            </tr>`;
+                                   <th>Entry</th>
+                                   <th>Date Created</th>
+                                   <th class="action" colspan="3">Actions</th>
+                                   </tr>`;
                 entries.forEach((single) => {
                     all_entries +=
                     `<tr>
                     <td class="tdata">${single.title}</td>
+                    <td class="tdata">${single.date_created}</td>
                     <td class="view tdata"><li><a href="/view/${single.id}"> View</a></li></td>
                     <td class="edit tdata"><li><a href="/modify/${single.id}"> Edit</a></li></td>
-                    <td class="delete tdata"><li><a href="/delete/${single.id}"> Delete</a></li></td> 
                     </tr>`;
                 })
                 entries_view.innerHTML = all_entries;
