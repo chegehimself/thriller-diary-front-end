@@ -98,7 +98,7 @@ document.getElementById("signup-form").addEventListener("submit", (event) => {
 }
 
 /////////////////////////////////////////////////////
-//   USER LOGOIN                                   //
+//   USER LOGIN                                   //
 /////////////////////////////////////////////////////
 
 let Token = {};
