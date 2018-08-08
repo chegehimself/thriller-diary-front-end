@@ -83,13 +83,13 @@ document.getElementById("signup-form").addEventListener("submit", (event) => {
                 let messageBody = document.getElementById("return");
                 messageBody.innerHTML = ResponseMessage
             }
-            else {
+            else if (received == `Invalid email.Try again`){
                 const successMessage = response_message[0];
-                const ResponseMessageSuccess = `<h3 class="text-green">Registration ${successMessage}ful!</h3>`;
+                const ResponseMessageSuccess = `<h3 class="text-red">Invalid email.Try again</h3>`;
                 let SuccessmessageBody = document.getElementById("return");
                 SuccessmessageBody.innerHTML = ResponseMessageSuccess
                 // redirect for login
-                window.location.href = "/signin";
+                // window.location.href = "/signin";
             }
     
           })
@@ -140,18 +140,18 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
             // yell at the user
             const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
             let messageBody = document.getElementById("return");
-            messageBody.innerHTML = ResponseMessage
+            Polymer.dom(messageBody).innerHTML = ResponseMessage
         }
         else if (received == "Oops! check your details and try again")
         {
             const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
             let messageBody = document.getElementById("return");
-            messageBody.innerHTML = ResponseMessage
+            Polymer.dom(messageBody).innerHTML = ResponseMessage
         }
         else if (received == `Too short password(at least 4 characters needed)`){
             const ResponseMessage =  `<h3 class="text-red">check your details and try again</h3>`;
             let messageBody = document.getElementById("return");
-            messageBody.innerHTML = ResponseMessage
+            Polymer.dom(messageBody).innerHTML = ResponseMessage
         }
         else {
             const successMessage = response_message[0];
