@@ -344,7 +344,7 @@ const ChangePassword = () => {
     const token = JSON.parse(localStorage.getItem('access_token'));
 
     let errors = document.getElementById('status');
-    errors.innerHTML = `<h3 class="text-green">Processing...</h3>`
+    errors.innerHTML = `<h3 class="text-blue">Processing...</h3>`
     // fetch userid
     const ProfileUrl = '//api-thriller-diary.herokuapp.com/api/v1/users/profile';
     fetch(`${ProfileUrl}`, {
