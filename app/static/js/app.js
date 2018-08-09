@@ -81,25 +81,25 @@ const signUp = () => {
                 messageBody.innerHTML = ResponseMessage
             }
             else if(received == `Invalid usernamee.Try again`) {
-                const ResponseMessage =  `<h3 class="text-red">Invalid username.Try again</h3>`;
+                const ResponseMessage =  `<h5 class="text-red">Invalid username.Try again</h5>`;
                 let messageBody = document.getElementById("return");
                 messageBody.innerHTML = ResponseMessage
             }
             else if (received == `Invalid email.Try again`){
                 const successMessage = response_message[0];
-                const ResponseMessageSuccess = `<h3 class="text-red">Invalid email.Try again</h3>`;
+                const ResponseMessageSuccess = `<h5 class="text-red">Invalid email.Try again</h5>`;
                 let SuccessmessageBody = document.getElementById("return");
                 SuccessmessageBody.innerHTML = ResponseMessageSuccess
             }
             else if(response_message[0] == `success`) {
                 // window.location.href = "/signin";
-                const ResponseMessage =  `<h3 class="text-green">Registration Successful!</h3>`;
+                const ResponseMessage =  `<h5 class="text-green">Registration Successful!</h5>`;
                 let messageBody = document.getElementById("return");
                 messageBody.innerHTML = ResponseMessage
                 window.location.href = "/signin";
             }
             else{
-                const ResponseMessageSuccess = `<h3 class="text-red">Registration failed.Try again</h3>`;
+                const ResponseMessageSuccess = `<h5 class="text-red">Registration failed.Try again</h5>`;
                 let SuccessmessageBody = document.getElementById("return");
                 SuccessmessageBody.innerHTML = ResponseMessageSuccess
             }
@@ -110,10 +110,8 @@ const signUp = () => {
 }
 
 /////////////////////////////////////////////////////
-//   USER LOGIN                                   //
+//   USER LOGIN                                    //
 /////////////////////////////////////////////////////
-
-let Token = {};
 
 const signIn = () => {
 document.getElementById("signin-form").addEventListener("submit", (event) => {
@@ -150,24 +148,24 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
         
         if (received == `Check your details and try again`){
             // yell at the user
-            const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
+            const ResponseMessage =  `<h5 class="text-red">${received}</h5>`;
             let messageBody = document.getElementById("return");
             messageBody.innerHTML = ResponseMessage
         }
         else if (received == "Oops! check your details and try again")
         {
-            const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
+            const ResponseMessage =  `<h5 class="text-red">${received}</h5>`;
             let messageBody = document.getElementById("return");
             messageBody.innerHTML = ResponseMessage
         }
         else if (received == `Too short password(at least 4 characters needed)`){
-            const ResponseMessage =  `<h3 class="text-red">check your details and try again</h3>`;
+            const ResponseMessage =  `<h5 class="text-red">check your details and try again</h5>`;
             let messageBody = document.getElementById("return");
             messageBody.innerHTML = ResponseMessage
         }
         else {
             const successMessage = response_message[0];
-            const ResponseMessageSuccess = `<h3 class="text-green">Login successful!</h3>`;
+            const ResponseMessageSuccess = `<h5 class="text-green">Login successful!</h5>`;
             let SuccessmessageBody = document.getElementById("return");
             SuccessmessageBody.innerHTML = ResponseMessageSuccess
             // redirect for dasho
