@@ -310,6 +310,9 @@ td {
   .text-blue{
     color: rgb(84, 82, 201);
 }
+.text-error {
+    color: #C92C2C;
+}
 /*********
 Typography
 ***********/

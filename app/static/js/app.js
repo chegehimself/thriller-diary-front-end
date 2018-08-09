@@ -90,7 +90,6 @@ const signUp = () => {
                 const ResponseMessageSuccess = `<h3 class="text-red">Invalid email.Try again</h3>`;
                 let SuccessmessageBody = document.getElementById("return");
                 SuccessmessageBody.innerHTML = ResponseMessageSuccess
-                // redirect for login
             }
             else if(response_message[0] == `success`) {
                 // window.location.href = "/signin";
@@ -103,7 +102,6 @@ const signUp = () => {
                 const ResponseMessageSuccess = `<h3 class="text-red">Registration failed.Try again</h3>`;
                 let SuccessmessageBody = document.getElementById("return");
                 SuccessmessageBody.innerHTML = ResponseMessageSuccess
-                // redirect for login
             }
     
           })
@@ -260,6 +258,8 @@ const AddEntry = () => {
         }
         else if (data.status == `success`){
             errors.innerHTML = `<h3 class="text-green">Entry Added!</h3>`;
+            window.location.href = "/entries";
+
         }
 }).catch(err => console.log(err));
 });
@@ -381,13 +381,12 @@ const ChangePassword = () => {
             .then((response)=>{
                 response.json().then((data) => {
                     let errors = document.getElementById('status');
-                    errors.innerHTML = `<h5 class="text-green">updating!</h5>`
                     console.log(data.status)
                     if (data.status == `success`){
-                        errors.innerHTML = `<h3 class="text-green">Password Updated!</h3>`;
+                        errors.innerHTML = `<h3 class="text-error">Password Updated!</h3>`;
                     }
                     else{
-                        errors.innerHTML = `<h3 class="text-green">Incorrect credentials!</h3>`;
+                        errors.innerHTML = `<h3 class="text-error">Incorrect credentials!</h3>`;
                     }
                 })}).catch(err => console.log(err));
         })
