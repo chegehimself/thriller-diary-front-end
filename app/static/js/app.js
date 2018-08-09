@@ -76,7 +76,7 @@ const signUp = () => {
             console.log(received)
             if (received == `user exists`){
                 // yell at the user
-                const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
+                const ResponseMessage =  `<h5 class="text-red">That email is already registered</h5>`;
                 let messageBody = document.getElementById("return");
                 messageBody.innerHTML = ResponseMessage
             }
