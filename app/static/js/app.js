@@ -38,8 +38,8 @@ const signUp = () => {
         event.preventDefault();
         const password = document.getElementById("password");
         const confirmation = document.getElementById("confirmation");
-        let messageBody = document.getElementById("return");
-        messageBody.innerHTML = `<h4 class="text-blue">Trying to register, please wait...</h4>`;
+        // let messageBody = document.getElementById("return");
+        // messageBody.innerHTML = `<h4 class="text-blue">Trying to register, please wait...</h4>`;
     // if (confirmation != password)
     //     {
     //         const response_message = `Password Mismatch`;
