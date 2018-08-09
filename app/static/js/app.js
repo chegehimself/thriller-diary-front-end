@@ -152,18 +152,18 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
             // yell at the user
             const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
             let messageBody = document.getElementById("return");
-            Polymer.dom(messageBody).innerHTML = ResponseMessage
+            messageBody.innerHTML = ResponseMessage
         }
         else if (received == "Oops! check your details and try again")
         {
             const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
             let messageBody = document.getElementById("return");
-            Polymer.dom(messageBody).innerHTML = ResponseMessage
+            messageBody.innerHTML = ResponseMessage
         }
         else if (received == `Too short password(at least 4 characters needed)`){
             const ResponseMessage =  `<h3 class="text-red">check your details and try again</h3>`;
             let messageBody = document.getElementById("return");
-            Polymer.dom(messageBody).innerHTML = ResponseMessage
+            messageBody.innerHTML = ResponseMessage
         }
         else {
             const successMessage = response_message[0];
@@ -381,12 +381,20 @@ const ChangePassword = () => {
             .then((response)=>{
                 response.json().then((data) => {
                     let errors = document.getElementById('status');
-                    console.log(data.status)
+                    const messageList = Object.values(data);
+                    const message = messageList[1];
+                    console.log(message)
                     if (data.status == `success`){
-                        errors.innerHTML = `<h3 class="text-error">Password Updated!</h3>`;
+                        errors.innerHTML = `<h4 class="text-green">Password Updated!</h4>`;
+                    }
+                    else if (message == `Incorrect old password`){
+                        errors.innerHTML = `<h4 class="text-error">Incorrect Old Password!</h4>`;
+                    }
+                    else if (message == `Password mismatch`){
+                        errors.innerHTML = `<h4 class="text-error">Password Confirmation Mismatch!</h4>`;
                     }
                     else{
-                        errors.innerHTML = `<h3 class="text-error">Incorrect credentials!</h3>`;
+                        errors.innerHTML = `<h4 class="text-error">Incorrect credentials!</h4>`;
                     }
                 })}).catch(err => console.log(err));
         })
