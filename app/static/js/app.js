@@ -250,14 +250,15 @@ const AddEntry = () => {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data.status)
-        if (data.status == 401){
-            errors.innerHTML = `<h3 class="text-red">Please Input all fields correctly!</h3>`;
+        if (data.message == `Please input valid title`){
+            errors.innerHTML = `<h3 class="text-red">Please input valid title</h3>`;
         }
         else if (data.status == `success`){
             errors.innerHTML = `<h3 class="text-green">Entry Added!</h3>`;
             window.location.href = "/entries";
-
+        }
+        else{
+            errors.innerHTML = `<h3 class="text-red">Please input all the fields correctly</h3>`;
         }
 }).catch(err => console.log(err));
 });
