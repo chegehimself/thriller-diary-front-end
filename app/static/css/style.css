@@ -360,6 +360,13 @@ span.date {
     text-decoration: underline;
 }
 
+.text-right.group-form {
+    margin-left: 40em;
+}
+.delete-ent {
+    padding: .6em;
+}
+
 /******
  media 
 *******/
@@ -433,9 +440,12 @@ span.date {
         width: 80%;
     }
     .text-right {
-        margin-right: 0px;
+        margin-left: 17em !important;
     }
     .group-form.single {
         margin-top: 0px;
+    }
+    .delete-ent {
+        padding: .5em !important;
     }
 }
