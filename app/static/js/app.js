@@ -159,7 +159,7 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
             messageBody.innerHTML = ResponseMessage
         }
         else if (received == `Too short password(at least 4 characters needed)`){
-            const ResponseMessage =  `<h5 class="text-red">check your details and try again</h5>`;
+            const ResponseMessage =  `<h5 class="text-red">Too short password(at least 4 characters needed)</h5>`;
             let messageBody = document.getElementById("return");
             messageBody.innerHTML = ResponseMessage
         }
