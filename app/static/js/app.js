@@ -34,10 +34,12 @@ fetch(`${WelcomeUrl}`, {
 //   USER SIGNUP                                   //
 /////////////////////////////////////////////////////
 const signUp = () => {
-document.getElementById("signup-form").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const password = document.getElementById("password");
-    const confirmation = document.getElementById("confirmation");
+    document.getElementById("signup-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const password = document.getElementById("password");
+        const confirmation = document.getElementById("confirmation");
+        // let messageBody = document.getElementById("return");
+        // messageBody.innerHTML = `<h4 class="text-blue">Trying to register, please wait...</h4>`;
     // if (confirmation != password)
     //     {
     //         const response_message = `Password Mismatch`;
@@ -71,25 +73,35 @@ document.getElementById("signup-form").addEventListener("submit", (event) => {
             const response_message  = Object.values(data);
             console.log(response_message[0])
             let received = response_message[1];
-            
+            console.log(received)
             if (received == `user exists`){
                 // yell at the user
-                const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
+                const ResponseMessage =  `<h5 class="text-red">That email is already registered</h5>`;
                 let messageBody = document.getElementById("return");
                 messageBody.innerHTML = ResponseMessage
             }
             else if(received == `Invalid usernamee.Try again`) {
-                const ResponseMessage =  `<h3 class="text-red">Invalid username.Try again</h3>`;
+                const ResponseMessage =  `<h5 class="text-red">Invalid username.Try again</h5>`;
                 let messageBody = document.getElementById("return");
                 messageBody.innerHTML = ResponseMessage
             }
-            else {
+            else if (received == `Invalid email.Try again`){
                 const successMessage = response_message[0];
-                const ResponseMessageSuccess = `<h3 class="text-green">Registration ${successMessage}ful!</h3>`;
+                const ResponseMessageSuccess = `<h5 class="text-red">Invalid email.Try again</h5>`;
                 let SuccessmessageBody = document.getElementById("return");
                 SuccessmessageBody.innerHTML = ResponseMessageSuccess
-                // redirect for login
+            }
+            else if(response_message[0] == `success`) {
+                // window.location.href = "/signin";
+                const ResponseMessage =  `<h5 class="text-green">Registration Successful!</h5>`;
+                let messageBody = document.getElementById("return");
+                messageBody.innerHTML = ResponseMessage
                 window.location.href = "/signin";
+            }
+            else{
+                const ResponseMessageSuccess = `<h5 class="text-red">Registration failed.Try again</h5>`;
+                let SuccessmessageBody = document.getElementById("return");
+                SuccessmessageBody.innerHTML = ResponseMessageSuccess
             }
     
           })
@@ -98,10 +110,8 @@ document.getElementById("signup-form").addEventListener("submit", (event) => {
 }
 
 /////////////////////////////////////////////////////
-//   USER LOGOIN                                   //
+//   USER LOGIN                                    //
 /////////////////////////////////////////////////////
-
-let Token = {};
 
 const signIn = () => {
 document.getElementById("signin-form").addEventListener("submit", (event) => {
@@ -117,6 +127,7 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
         email: email.value,
         password: password.value,
     };
+    console.log(JSON.stringify(credentials))
     //   fetch("//api-thriller-diary.herokuapp.com/api/v1/auth/login/", {
     fetch("//api-thriller-diary.herokuapp.com/api/v1/auth/login", {
             method: "POST",
@@ -137,24 +148,24 @@ document.getElementById("signin-form").addEventListener("submit", (event) => {
         
         if (received == `Check your details and try again`){
             // yell at the user
-            const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
+            const ResponseMessage =  `<h5 class="text-red">${received}</h5>`;
             let messageBody = document.getElementById("return");
             messageBody.innerHTML = ResponseMessage
         }
         else if (received == "Oops! check your details and try again")
         {
-            const ResponseMessage =  `<h3 class="text-red">${received}</h3>`;
+            const ResponseMessage =  `<h5 class="text-red">${received}</h5>`;
             let messageBody = document.getElementById("return");
             messageBody.innerHTML = ResponseMessage
         }
         else if (received == `Too short password(at least 4 characters needed)`){
-            const ResponseMessage =  `<h3 class="text-red">check your details and try again</h3>`;
+            const ResponseMessage =  `<h5 class="text-red">Too short password(at least 4 characters needed)</h5>`;
             let messageBody = document.getElementById("return");
             messageBody.innerHTML = ResponseMessage
         }
         else {
             const successMessage = response_message[0];
-            const ResponseMessageSuccess = `<h3 class="text-green">Login successful!</h3>`;
+            const ResponseMessageSuccess = `<h5 class="text-green">Login successful!</h5>`;
             let SuccessmessageBody = document.getElementById("return");
             SuccessmessageBody.innerHTML = ResponseMessageSuccess
             // redirect for dasho
@@ -239,12 +250,15 @@ const AddEntry = () => {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data.status)
-        if (data.status == 401){
-            errors.innerHTML = `<h3 class="text-red">Please Input all fields correctly!</h3>`;
+        if (data.message == `Please input valid title`){
+            errors.innerHTML = `<h3 class="text-red">Please input valid title</h3>`;
         }
         else if (data.status == `success`){
             errors.innerHTML = `<h3 class="text-green">Entry Added!</h3>`;
+            window.location.href = "/entries";
+        }
+        else{
+            errors.innerHTML = `<h3 class="text-red">Please input all the fields correctly</h3>`;
         }
 }).catch(err => console.log(err));
 });
@@ -329,7 +343,7 @@ const ChangePassword = () => {
     const token = JSON.parse(localStorage.getItem('access_token'));
 
     let errors = document.getElementById('status');
-    errors.innerHTML = `<h3 class="text-green">Processing...</h3>`
+    errors.innerHTML = `<h3 class="text-blue">Processing...</h3>`
     // fetch userid
     const ProfileUrl = '//api-thriller-diary.herokuapp.com/api/v1/users/profile';
     fetch(`${ProfileUrl}`, {
@@ -366,13 +380,20 @@ const ChangePassword = () => {
             .then((response)=>{
                 response.json().then((data) => {
                     let errors = document.getElementById('status');
-                    errors.innerHTML = `<h5 class="text-green">updating!</h5>`
-                    console.log(data.status)
+                    const messageList = Object.values(data);
+                    const message = messageList[1];
+                    console.log(message)
                     if (data.status == `success`){
-                        errors.innerHTML = `<h3 class="text-green">Password Updated!</h3>`;
+                        errors.innerHTML = `<h4 class="text-green">Password Updated!</h4>`;
+                    }
+                    else if (message == `Incorrect old password`){
+                        errors.innerHTML = `<h4 class="text-error">Incorrect Old Password!</h4>`;
+                    }
+                    else if (message == `Password mismatch`){
+                        errors.innerHTML = `<h4 class="text-error">Password Confirmation Mismatch!</h4>`;
                     }
                     else{
-                        errors.innerHTML = `<h3 class="text-green">Incorrect credentials!</h3>`;
+                        errors.innerHTML = `<h4 class="text-error">Incorrect credentials!</h4>`;
                     }
                 })}).catch(err => console.log(err));
         })

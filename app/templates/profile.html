@@ -75,7 +75,7 @@
                     <form action="">
                             <input class="reminder" id="reminder" type="datetime-local" name="reminder" value="2018-07-15T08:30">
                             <div class="btn-space">
-                                   <button class="btn-toSign" type="submit">Submit</button>
+                                   <button class="btn-toSign" type="submit" disabled>Submit</button>
                             </div>
                     </form>
                     <form action="" class="btn-space">
@@ -89,13 +89,13 @@
                                     
                             </div>
                         <div class="btn-space">
-                            <input class="reminder" id="old-password" type="password" name="old-password" placeholder="Old password" required>
+                            <input class="reminder" id="old-password" type="password" name="old-password" minlength="4" placeholder="Old password" required>
                         </div>
                         <div class="btn-space">
-                            <input class="reminder" id="new-password" type="password" name="password" placeholder="New Password" required>
+                            <input class="reminder" id="new-password" type="password" name="password" minlength="4" placeholder="New Password" required>
                         </div>
                         <div class="btn-space">
-                            <input class="reminder" id="confirmation" type="password" name="confirmation" placeholder="confirm" required>
+                            <input class="reminder" id="confirmation" type="password" name="confirmation" minlength="4" placeholder="confirm" required>
                         </div>
                         <div class="btn-space">
                                 <button class="btn-toSign" onclick="ChangePassword()">Reset</button>
@@ -119,4 +119,3 @@
      <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
  </body>
  </html>
- 

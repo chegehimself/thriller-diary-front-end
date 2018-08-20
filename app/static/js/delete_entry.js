@@ -4,7 +4,7 @@
 
 const DeleteEntry = () => {
     const entryId = Number(location.pathname.match(/\d+/)[0]);
-    if (!confirm(`Are you sure want to delete entry id ${entryId}?`)) 
+    if (!confirm(`Are you sure want to delete this entry?`)) 
         return false;
     else{
     let btn;
@@ -24,11 +24,12 @@ const DeleteEntry = () => {
     .then(data => {
         console.log(data.status)
         if (data.status == `fail`){
-            errors.innerHTML = `<h3 class="text-red">Entry Not found!</h3>`;
+            errors.innerHTML = `<h5 class="text-red">Entry Not found!</h5>`;
         }
         else if (data.status == `success`){
             $(".single").css("display", "none");
-            errors.innerHTML = `<h3 class="text-green">Entry Deleted!</h3>`;
+            errors.innerHTML = `<h5 class="text-green">Entry Deleted!</h5>`;
+            window.location.href = `/dashboard`;
         }
 }).catch(err => console.log(err));
 }

@@ -159,10 +159,7 @@ main {
 }
 
 .text-right {
-    margin-right: -640px;
-}
-.group-form.single {
-    margin-top: -50px;
+    margin-left: 0px;
 }
 /*********
 Color
@@ -313,6 +310,9 @@ td {
   .text-blue{
     color: rgb(84, 82, 201);
 }
+.text-error {
+    color: #C92C2C;
+}
 /*********
 Typography
 ***********/
@@ -358,6 +358,13 @@ p {
 
 span.date {
     text-decoration: underline;
+}
+
+.text-right.group-form {
+    margin-left: 40em;
+}
+.delete-ent {
+    padding: .6em;
 }
 
 /******
@@ -433,9 +440,12 @@ span.date {
         width: 80%;
     }
     .text-right {
-        margin-right: -250px;
+        margin-left: 17em !important;
     }
     .group-form.single {
         margin-top: 0px;
+    }
+    .delete-ent {
+        padding: .5em !important;
     }
 }

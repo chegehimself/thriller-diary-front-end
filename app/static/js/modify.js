@@ -50,14 +50,16 @@ const Modify = () => {
     })
     .then((response)=>{
         response.json().then((data) => {
-            console.log(data.status)
+            console.log(data)
             if (data.status == `success`){
                 let errors = document.getElementById('errors');
-                errors.innerHTML = `<h3 class="text-green">Entry Updated!</h3>`;
+                errors.innerHTML = `<h5 class="text-green">Entry Updated!</h5>`;
+                const entryId = Number(location.pathname.match(/\d+/)[0]);
+                window.location.href = `/view/${entryId}`;
             }
-            else
+            else if (data.message == `Please input valid title`)
             {
-                errors.innerHTML = `<h3 class="text-red">Please input all the fields correctly!</h3>`;
+                errors.innerHTML = `<h5 class="text-red">Please input valid title!</h5>`;
             }
         })}).catch(err => console.log(err));
     });

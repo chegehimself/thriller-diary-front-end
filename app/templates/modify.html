@@ -53,20 +53,21 @@
         <ul>
             <a href="/dashboard"><li><button class="btn-toHome">Dashboard</button></li></a>
             <a href="/entries"><li><button class="btn-toSign">View All Entries</button></li></a>
+            <a href="/profile"><li><button class="btn-toSign btn-account">Account</button></li></a>
         </ul>
         </nav>
     </header>
 
     <main>
         <section id="modify-sec">
-            <h1 class="font-style-me">Hope you are doing fine.Let's write some story.</h1>
+            <h1 class="font-style-me">Nice to see you here, let's modify something.</h1>
             <form id="add-form">
                 <div class="group-form" id="errors">
                     
                 </div>
                 <div class="group-form">
                     <p><b>Title</b></p>
-                    <input class="form-input" type="text" id="title" name="title" placeholder="eg. At NewYork ">
+                    <input class="form-input" type="text" id="title" name="title" placeholder="eg. At NewYork " required>
                 </div>
                 <!-- <div class="group-form">
                     <p><b>Date</b></p>
@@ -74,7 +75,7 @@
                 </div> -->
                 <div class="group-form">
                     <p><b>Story</b></p>
-                    <textarea class="form-input" name="story-description" id="description" cols="30" rows="10" placeholder="A breif story"></textarea>
+                    <textarea class="form-input" name="story-description" id="description" cols="30" rows="5" placeholder="A breif story" required></textarea>
                 </div>
                 <div>
                     <button onclick="Modify()" class="btn-toSign">UPDATE</button>

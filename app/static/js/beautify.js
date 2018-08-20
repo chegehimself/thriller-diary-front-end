@@ -1,0 +1,1 @@
+$(".text-red").delay(100).fadeOut(1500);

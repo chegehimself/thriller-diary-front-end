@@ -54,6 +54,7 @@
         <ul>
             <a href="/dashboard"><li><button class="btn-toHome">Dashboard</button></li></a>
             <a href="/entries"><li><button class="btn-toSign">View All Entries</button></li></a>
+            <a href="/profile"><li><button class="btn-toSign btn-account">Account</button></li></a>
         </ul>
         </nav>
     </header>
@@ -67,7 +68,7 @@
                 </div>
                 <div class="group-form">
                     <p><b>Title</b></p>
-                    <input class="form-input" type="text" id="title" name="title" placeholder="eg. At NewYork ">
+                    <input class="form-input" type="text" id="title" name="title" maxlength="20" placeholder="eg. At NewYork " required>
                 </div>
                 <!-- <div class="group-form">
                     <p><b>Date</b></p>
@@ -75,7 +76,7 @@
                 </div> -->
                 <div class="group-form">
                     <p><b>Story</b></p>
-                    <textarea class="form-input" name="story-description" id="description" cols="30" rows="10" placeholder="A breif story"></textarea>
+                    <textarea class="form-input" name="story-description" id="description" cols="30" rows="10" placeholder="A brief story" required></textarea>
                 </div>
                 <div>
                     <button onclick="AddEntry()" class="btn-toSign">Add</button>

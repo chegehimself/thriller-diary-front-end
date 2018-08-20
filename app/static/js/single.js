@@ -1,5 +1,5 @@
 /////////////////////////////////
-//     Modify an Entry        //
+//     Fetch a single Entry   //
 ////////////////////////////////
 document.addEventListener('DOMContentLoaded', () => {
     const token = JSON.parse(localStorage.getItem('access_token'));
