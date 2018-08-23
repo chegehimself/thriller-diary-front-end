@@ -18,7 +18,22 @@ fetch(`${WelcomeUrl}`, {
         console.log(data)
         const warmWelcome = Object.values(data.Message)
 
-        const FetchedMessage =  `<h2 class="text-white">${warmWelcome}</h2>`
+        const FetchedMessage =  
+        ` 
+        <p class="text-white">
+            Are you tired of writing your dairy on paper and having to carry 
+            the book everywhere you go?
+        </p>
+        <p class="text-white">
+            Imagine of accessing your Dairy from everywhere you want, at anytime you want 
+            and suprisingly, not only with a computer but also a mobile device readily 
+            available from your pocket or handbag..Or just borrow from a friend for a second.
+        </p>
+        <p class="text-white">
+            Your Struggle Ends right now, right here! Click the button below to join us and get a chance to 
+            enjoy our <b>free</b> services.
+        </p>
+        `
 
         message.innerHTML = FetchedMessage
         
