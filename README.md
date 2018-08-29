@@ -1,5 +1,8 @@
 # thriller-diary
 
+# Status
+[![Build Status](https://travis-ci.org/james-chege/thriller-diary-front-end.svg?branch=ch-tests)](https://travis-ci.org/james-chege/thriller-diary-front-end)
+
 [__Link to pivotaltracker stories__](https://www.pivotaltracker.com/n/projects/2183778)
 
 This is online journal where users can pen down their thoughts and feelings. __[Live version](https://thriller-diary.herokuapp.com)__
