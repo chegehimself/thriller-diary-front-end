@@ -125,3 +125,37 @@ it('User signs with correct email', async () => {
     expect(document.getElementById('return').innerHTML).toBe('<h5 class=\"text-red\">Invalid email.Try again</h5>');
 })
 
+
+it('Notify user for any reason they are not able to sign-up', async () => {
+    // restore mock to initial state
+    Mock.mockRestore();
+    NavSpyMock.mockRestore();
+    jest.resetModules();
+
+    // mock fake fetch
+    Mock = jest.spyOn(global, 'fetch');
+    Mock.mockImplementation(() => Promise.resolve({
+    
+    json: () => Promise.resolve({"status": "fail", "Message": "something bad happened"})
+    }))
+    document.getElementById('email').value = '';
+    document.getElementById('DoSubmission').click();
+    expect(Mock).toHaveBeenCalledTimes(4);
+    const Fetch = Mock.mock.calls[0];
+    expect(Fetch[0]).toBe('//api-thriller-diary.herokuapp.com/api/v1/auth/signup');
+    expect(Fetch[1]).toEqual({
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+          email: '',
+          password: '1234',
+          username: '@@#BadVeryB@d',
+      })
+    });
+    // wait for  the promise to resolve
+    await Promise.resolve().then();
+    expect(document.getElementById('return').innerHTML).toBe('<h5 class=\"text-red\">Registration failed.Try again</h5>');
+})
+
