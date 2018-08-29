@@ -32,14 +32,13 @@ describe ('signs up user to thriller-diary.herokuapp.com correctly', () => {
     Mock.mockImplementation(() => Promise.resolve({
     
     json: () => Promise.resolve({"status": "success"})
-    }));
+    }))
     // spy on window navigation
     NavSpyMock = jest.spyOn(window.location, "assign");
     NavSpyMock.mockImplementation(() => {});
 
     it('signs up user to thriller-diary.herokuapp.com correctly', async () => {
         document.getElementById('DoSubmission').click();
-    
         expect(Mock).toHaveBeenCalledTimes(1);
         const Fetch = Mock.mock.calls[0];
         expect(Fetch[0]).toBe('//api-thriller-diary.herokuapp.com/api/v1/auth/signup');
@@ -59,4 +58,38 @@ describe ('signs up user to thriller-diary.herokuapp.com correctly', () => {
         expect(document.getElementById('return').innerHTML).toBe('<h5 class=\"text-green\">Registration Successful!</h5>');
       });
     });
+
+it('User signs with correct username', async () => {
+    // restore mock to initial state
+    Mock.mockRestore();
+    NavSpyMock.mockRestore();
+    jest.resetModules();
+
+    // mock fake fetch
+    Mock = jest.spyOn(global, 'fetch');
+    Mock.mockImplementation(() => Promise.resolve({
     
+    json: () => Promise.resolve({"status": "fail", "message" : "user exists"})
+    }))
+    document.getElementById('username').value = '@@#BadVeryB@d';
+    document.getElementById('DoSubmission').click();
+    expect(Mock).toHaveBeenCalledTimes(2);
+    const Fetch = Mock.mock.calls[0];
+    expect(Fetch[0]).toBe('//api-thriller-diary.herokuapp.com/api/v1/auth/signup');
+    expect(Fetch[1]).toEqual({
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+          email: 'kamade1@gmail.com',
+          password: '1234',
+          username: '@@#BadVeryB@d',
+      })
+    });
+    // wait for  the promise to resolve
+    await Promise.resolve().then();
+    expect(document.getElementById('return').innerHTML).toBe('<h5 class=\"text-red\">That email is already registered</h5>');
+})
+    
+
