@@ -7,20 +7,7 @@
 function signUp(){
     document.getElementById("signup-form").addEventListener("submit", (event) => {
         event.preventDefault();
-        const password = document.getElementById("password");
-        const confirmation = document.getElementById("confirmation");
-        // let messageBody = document.getElementById("return");
-        // messageBody.innerHTML = `<h4 class="text-blue">Trying to register, please wait...</h4>`;
-    // if (confirmation != password)
-    //     {
-    //         const response_message = `Password Mismatch`;
-    //         const ResponseMessage =  `<h3 class="text-red">${response_message[1]}</h3>`;
-    
-    //         let messageBody = document.getElementById("response_message");
-    //         messageBody.innerHTML = ResponseMessage
-    //     }
-      console.log(`we are sending data ...`)
-    
+      const password = document.getElementById("password");
       const username = document.getElementById("username");
     
       const email = document.getElementById("email");
@@ -40,11 +27,8 @@ function signUp(){
           })
           .then(res => res.json())
           .then(data => {
-            console.log(data)
             const response_message  = Object.values(data);
-            console.log(response_message[0])
             let received = response_message[1];
-            console.log(received)
             if (received == `user exists`){
                 // yell at the user
                 const ResponseMessage =  `<h5 class="text-red">That email is already registered</h5>`;

@@ -2,7 +2,7 @@
 //   USER LOGIN                                    //
 /////////////////////////////////////////////////////
 
-export const signIn = () => {
+const signIn = () => {
     document.getElementById("signin-form").addEventListener("submit", (event) => {
         event.preventDefault();
         const password = document.getElementById("password");
@@ -16,7 +16,7 @@ export const signIn = () => {
             email: email.value,
             password: password.value,
         };
-        console.log(JSON.stringify(credentials))
+        // console.log(JSON.stringify(credentials))
         //   fetch("//api-thriller-diary.herokuapp.com/api/v1/auth/login/", {
         fetch("//api-thriller-diary.herokuapp.com/api/v1/auth/login", {
                 method: "POST",
@@ -58,7 +58,7 @@ export const signIn = () => {
                 let SuccessmessageBody = document.getElementById("return");
                 SuccessmessageBody.innerHTML = ResponseMessageSuccess
                 // redirect for dasho
-                window.location.href = "/dashboard";
+                window.location.assign("/dashboard");
             }
     
             })
@@ -66,3 +66,5 @@ export const signIn = () => {
         });
     
     }
+
+module.exports = signIn
