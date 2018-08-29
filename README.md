@@ -2,6 +2,7 @@
 
 # Status
 [![Build Status](https://travis-ci.org/james-chege/thriller-diary-front-end.svg?branch=ch-tests)](https://travis-ci.org/james-chege/thriller-diary-front-end)
+[![Coverage Status](https://coveralls.io/repos/github/james-chege/thriller-diary-front-end/badge.svg?branch=ch-tests)](https://coveralls.io/github/james-chege/thriller-diary-front-end?branch=ch-tests)
 
 [__Link to pivotaltracker stories__](https://www.pivotaltracker.com/n/projects/2183778)
 
