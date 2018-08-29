@@ -7,7 +7,6 @@ const signIn = () => {
         event.preventDefault();
         const password = document.getElementById("password");
         const confirmation = document.getElementById("confirmation");
-        console.log(`we are sending data ...`)
         
         const username = document.getElementById("username");
         const email = document.getElementById("email");
@@ -27,12 +26,10 @@ const signIn = () => {
             })
             .then(res => res.json())
             .then(data => {
-            console.log(data['token'])
             // user token
             const token = data['token']
             localStorage.setItem('access_token', JSON.stringify(token));
             const response_message  = Object.values(data);
-            console.log(response_message[1])
             let received = response_message[1];
             
             if (received == `Check your details and try again`){
