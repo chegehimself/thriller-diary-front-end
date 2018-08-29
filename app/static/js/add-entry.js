@@ -29,8 +29,8 @@ const AddEntry = () => {
             errors.innerHTML = `<h3 class="text-red">Please input valid title</h3>`;
         }
         else if (data.status == `success`){
-            errors.innerHTML = `<h3 class="text-green">Entry Added!</h3>`;
-            window.location.href = "/entries";
+            errors.innerHTML = `<h3 class="text-green">Entry added successufully!</h3>`;
+            window.location.assign("/entries");
         }
         else{
             errors.innerHTML = `<h3 class="text-red">Please input all the fields correctly</h3>`;
@@ -38,3 +38,5 @@ const AddEntry = () => {
 }).catch(err => console.log(err));
 });
 }
+
+module.exports = AddEntry
