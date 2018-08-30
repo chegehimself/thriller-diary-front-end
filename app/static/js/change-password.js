@@ -45,10 +45,11 @@ const ChangePassword = () => {
             })
             .then((response)=>{
                 response.json().then((data) => {
+                    // console.log(data)
                     let errors = document.getElementById('status');
                     const messageList = Object.values(data);
                     const message = messageList[1];
-                    console.log(message)
+                    console.log(data.status)
                     if (data.status == `success`){
                         errors.innerHTML = `<h4 class="text-green">Password Updated!</h4>`;
                     }
