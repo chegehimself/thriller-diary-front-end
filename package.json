@@ -16,6 +16,7 @@
   "jest": {
     "setupFiles": [
       "./config.js"
-    ]
+    ],
+    "testURL": "http://thriller-diary.herokuapp/entries/1"
   }
 }

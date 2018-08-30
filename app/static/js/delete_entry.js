@@ -27,11 +27,12 @@ const DeleteEntry = () => {
             errors.innerHTML = `<h5 class="text-red">Entry Not found!</h5>`;
         }
         else if (data.status == `success`){
-            $(".single").css("display", "none");
+            // $(".single").css("display", "none");
             errors.innerHTML = `<h5 class="text-green">Entry Deleted!</h5>`;
-            window.location.href = `/dashboard`;
+            window.location.assign("/dashboard");
         }
 }).catch(err => console.log(err));
 }
 }
 
+module.exports = DeleteEntry
