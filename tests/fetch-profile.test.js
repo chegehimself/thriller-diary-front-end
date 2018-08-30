@@ -2,9 +2,6 @@ describe ('Successfully fetch user profile from thriller-diary.herokuapp.com', (
     document.body.innerHTML = ` <p>Email: <span class="name" id="email"></span></p>
                                 <p>Username: <span class="name" id="name"></span></p>`;
     Mock = jest.spyOn(global, 'fetch');
-    // all_user_entries = [{id:1, title:"fakeTitle", date_created:"30/08/2018", description:"this is a fakeentry"},{id:2, title:"fakeTitle", date_created:"30/08/2018", description:"this is another fakeentry"},{id:1, title:"fakeTitle", date_created:"30/08/2018", description:"this is another fakeentry"},{id:1, title:"fakeTitle", date_created:"30/08/2018", description:"this is another fakeentry"},{id:1, title:"fakeTitle", date_created:"30/08/2018", description:"this is another fakeentry"},{id:1, title:"fakeTitle", date_created:"30/08/2018", description:"this is another fakeentry"},{id:1, title:"fakeTitle", date_created:"30/08/2018", description:"this is another fakeentry"},{id:1, title:"fakeTitle", date_created:"30/08/2018", description:"this is another fakeentry"}];
-    // all_user_entries = [{id:1, title:"fakeTitle", date_created:"30/08/2018", description:"this is a fakeentry"}];
-    Mock = jest.spyOn(global, 'fetch');
     Mock.mockImplementation(() => Promise.resolve({
     json: () => Promise.resolve({"status": "success", "Profile": {"id":1,
     "username":"fakeUsername",
