@@ -2,7 +2,7 @@
 // CHANGE PASSWORD                  //
 //////////////////////////////////////
 
-export const ChangePassword = () => {
+const ChangePassword = () => {
     document.getElementById("password-form").addEventListener("submit", (event) => {
         event.preventDefault();
     // get token
@@ -67,3 +67,5 @@ export const ChangePassword = () => {
         
     });
     }
+
+    module.exports = ChangePassword
