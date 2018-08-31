@@ -69,10 +69,10 @@
                  <p>Username: <span class="name" id="name">Fetching...</span></p>
                  <p>Number of Entries<a href="/dashboard"><li><span class="num" id="num_of_entries">...</span></li></a></p>
                  <br>
-                 <p>Set a reminder here!</p>
+                 <!-- <p>Set a reminder here!</p> -->
 
                  <div class="btn-space">
-                    <form action="">
+                    <!-- <form action="">
                             <input class="reminder" id="reminder" type="datetime-local" name="reminder" value="2018-07-15T08:30">
                             <div class="btn-space">
                                    <button class="btn-toSign" type="submit" disabled>Submit</button>
@@ -81,7 +81,7 @@
                     <form action="" class="btn-space">
                             <input class="control" type="checkbox" name="daily" > Daily Notification<br>
                             
-                    </form>
+                    </form> -->
 
                     <h4>Change Password</h4>
                     <form id="password-form">
@@ -115,7 +115,10 @@
      </footer>
     
      <!-- js -->
+     <script src="{{ url_for('static', filename='js/number-of-entries.js') }}"></script>
      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/fetch-profile.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/change-password.js') }}"></script>
      <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
  </body>
  </html>

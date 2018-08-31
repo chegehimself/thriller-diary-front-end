@@ -55,7 +55,7 @@ const Modify = () => {
                 let errors = document.getElementById('errors');
                 errors.innerHTML = `<h5 class="text-green">Entry Updated!</h5>`;
                 const entryId = Number(location.pathname.match(/\d+/)[0]);
-                window.location.href = `/view/${entryId}`;
+                window.location.assign(`/view/${entryId}`);
             }
             else if (data.message == `Please input valid title`)
             {
@@ -64,3 +64,5 @@ const Modify = () => {
         })}).catch(err => console.log(err));
     });
     }
+
+module.exports = Modify

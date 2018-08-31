@@ -1,5 +1,10 @@
 # thriller-diary
 
+# Status
+[![Build Status](https://travis-ci.org/james-chege/thriller-diary-front-end.svg?branch=ch-tests)](https://travis-ci.org/james-chege/thriller-diary-front-end)
+[![Coverage Status](https://coveralls.io/repos/github/james-chege/thriller-diary-front-end/badge.svg?branch=ch-tests)](https://coveralls.io/github/james-chege/thriller-diary-front-end?branch=ch-tests)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dd753da076ee448fa972317bdbb527c1)](https://www.codacy.com/app/james-chege/thriller-diary-front-end?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=james-chege/thriller-diary-front-end&amp;utm_campaign=Badge_Grade)
+
 [__Link to pivotaltracker stories__](https://www.pivotaltracker.com/n/projects/2183778)
 
 This is online journal where users can pen down their thoughts and feelings. __[Live version](https://thriller-diary.herokuapp.com)__
