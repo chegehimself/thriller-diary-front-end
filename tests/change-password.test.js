@@ -22,7 +22,7 @@ document.body.innerHTML =`
 describe ('Successfully updates the user password at from thriller-diary.herokuapp.com', () => {
     Mock = jest.spyOn(global, 'fetch');
     Mock.mockImplementation(() => Promise.resolve({
-        json: () => Promise.resolve({"status": "success", "Profile": {"id":1,
+        json: () => Promise.resolve({"status": "success", "Profile": {"id":"1",
         "username":"fakeUsername",
         "email":"fakeEmail"}})
         }))
@@ -41,7 +41,7 @@ describe ('Successfully updates the user password at from thriller-diary.herokua
         });
         // wait for  the promise to resolve
         await Promise.resolve().then();
-        expect(document.getElementById('status').innerHTML).toBe('<h3 class=\"text-blue\">Processing...</h3>');
+        expect(document.getElementById('status').innerHTML).toBe("<h3 class=\"text-blue\">Processing...</h3>");
       });
 
       it('rejects wrong old password at thriller-diary.herokuapp.com', async () => {
@@ -56,29 +56,33 @@ describe ('Successfully updates the user password at from thriller-diary.herokua
             access_token : null
           }
         });
-        Mock = jest.spyOn(global, 'fetch');
+        FetchPassword = Mock.mock.calls[1][0];
+        expect(FetchPassword).toBe('//api-thriller-diary.herokuapp.com/api/v1/users/change_password/');
+            console.log(Mock.mock.calls[1][0]);
         Mock.mockImplementation(() => Promise.resolve({
-            json: () => Promise.resolve({"status":"fail", "message":"Incorrect old password"})
-            }))
-
-            console.log(Mock.mock.calls);
-        // wait for  the promise to resolve
-        await Promise.resolve().then();
-        expect(document.getElementById('status').innerHTML).toBe('<h3 class=\"text-blue\">Processing...</h3>');
-      });
-
-
-      it('rejects mistmatching password at thriller-diary.herokuapp.com', async () => {
-        document.getElementById('btn-toSign').click();
+          json: () => Promise.resolve({"status":"fail", "message":"Incorrect old password"})
+          }))
+          // wait for  the promise to resolve
+          await Promise.resolve().then();
+        });
+        
+        
+        it('rejects mistmatching password at thriller-diary.herokuapp.com', async () => {
+        document.getElementById('btn-toSign').click()
+        const FetchPassword = Mock.mock.calls[1];
         expect(Mock).toHaveBeenCalledTimes(9);
-        const Fetch = Mock.mock.calls[0];
-        expect(Fetch[0]).toBe('//api-thriller-diary.herokuapp.com/api/v1/users/profile');
-        expect(Fetch[1]).toEqual({
-          method: "GET",
+        expect(FetchPassword[0]).toBe('//api-thriller-diary.herokuapp.com/api/v1/users/change_password/');
+        expect(FetchPassword[1]).toEqual({
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
             access_token : null
-          }
+          },
+          body: JSON.stringify({
+            old_password: "oldie",
+            new_password: 'newie',
+            confirmation: 'confie',
+        }) 
         });
         Mock = jest.spyOn(global, 'fetch');
         Mock.mockImplementation(() => Promise.resolve({
@@ -86,6 +90,33 @@ describe ('Successfully updates the user password at from thriller-diary.herokua
             }))
         // wait for  the promise to resolve
         await Promise.resolve().then();
-        expect(document.getElementById('status').innerHTML).toBe('<h3 class=\"text-blue\">Processing...</h3>');
+      });
+
+
+      it('rejects mistmatching password at thriller-diary.herokuapp.com', async () => {
+        document.getElementById('btn-toSign').click()
+        const FetchPassword = Mock.mock.calls[1];
+        expect(Mock).toHaveBeenCalledTimes(13);
+        expect(FetchPassword[0]).toBe('//api-thriller-diary.herokuapp.com/api/v1/users/change_password/');
+        expect(FetchPassword[1]).toEqual({
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            access_token : null
+          },
+          body: JSON.stringify({
+            old_password: "oldie",
+            new_password: 'newie',
+            confirmation: 'confie',
+        }) 
+        });
+        Mock = jest.spyOn(global, 'fetch');
+        Mock.mockImplementation(() => Promise.resolve({
+            json: () => Promise.resolve({
+              "status": "success",
+              "entry": {"Message":"Password Updated successfully"}})
+            }))
+        // wait for  the promise to resolve
+        await Promise.resolve().then();
       });
  });
